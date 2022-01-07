@@ -11,16 +11,16 @@ public class Sorts {
     Comparable leftItm = al.get(posLeft);
 
     // placed previously right item in the place of the left item
-    al.add(posLeft, rightItm);
-    al.remove(posLeft+1);
+    al.set(posLeft, rightItm);
+    // al.remove(posLeft+1);
 
     // places previously left item to the right
-    al.add(posRight, leftItm);
-    al.remove(posRight+1);
+    al.set(posRight, leftItm);
+    // al.remove(posRight+1);
   }
 
   // checks if an array is sorted
-  public static boolean isSorted(ArrayList<Integer> list) {
+  public static boolean isSorted(ArrayList<Comparable> list) {
 
     for (int i = 1; i < list.size(); i++) {
       if (((int)list.get(i)) < ((int)list.get(i-1))) {
@@ -56,31 +56,33 @@ public class Sorts {
   // postcondition: data's elements sorted in ascending order
   public static int bubbleSort( ArrayList<Comparable> data )
   {
-    int ComparisonCounter = 0;
+    int comparisonCounter = 0;
+    int passCounter = 0;
+    int swapCounter = 0;
 
     boolean noSwap = false;
     int i = 0;
 
     while ((noSwap == false)) { // while no swap is false and
         noSwap = true;
+        passCounter += 1;
         for (int z = data.size()-1; z > i; z--) {
-            // ComparisonCounter += 1;
 
             Comparable val1 = data.get(z);
             Comparable val2 = data.get(z-1);
 
-            ComparisonCounter += 1;
+            comparisonCounter += 1;
             if (val1.compareTo(val2) < 1) {
+                swapCounter += 1;
+                swap(data,z-1,z);
                 noSwap = false;
-                data.set(z, val2);
-                data.set(z-1, val1);
             }
         }
-        i ++;
+        i++;
     }
 
-    // System.out.println(data);
-    return ComparisonCounter;
+    System.out.println("Bubblesort compare, pass, swap: " + comparisonCounter + " " + passCounter + " " + swapCounter);
+    return comparisonCounter;
   }
 
 
@@ -92,17 +94,20 @@ public class Sorts {
   public static int selectionSort( ArrayList<Comparable> data )
   {
     //note: this version places smallest value at "rightmost" end
-    int ComparisonCounter = 0;
+    int comparisonCounter = 0;
+    int passCounter = 0;
+    int swapCounter = 0;
 
     Comparable minVal; // smallest value
     Comparable curVal; // current value at position z
 
     for(int i = 0; i < data.size(); i++) {
       minVal = data.get(i);
+      passCounter += 1;
 
-      // nested forloop
+      // nested forloop - looks for smallest value in array and places it at i position
       for(int z = i + 1 ; z < data.size(); z++) {
-        ComparisonCounter+=1;
+        comparisonCounter+=1;
 
         curVal = data.get(z);
 
@@ -124,12 +129,14 @@ public class Sorts {
 
       } // end nested forloop
 
+      // not swapping, but places smallest value at the beginning (swap worthy)
+      swapCounter += 1;
       data.remove(minVal);
       data.add(i, minVal);
     }
 
-    // System.out.println(data);    
-    return ComparisonCounter;
+    System.out.println("Selectionsort compare, pass, swap: " + comparisonCounter + " " + passCounter + " " + swapCounter);
+    return comparisonCounter;
   }//end selectionSort
 
 
@@ -140,11 +147,13 @@ public class Sorts {
   // postcondition: data's elements sorted in ascending order
   public static int insertionSort( ArrayList<Comparable> data )
   {
-    int ComparisonCounter = 0;
+    int comparisonCounter = 0;
+    int passCounter = 0;
+    int swapCounter = 0;
 
     for(int i = 1; i <= data.size(); i++) {
       //partition marks first item in unsorted region
-
+      passCounter +=1;
       //traverse sorted region from right to left
       for(int z = i-1; z > 0; z--) {
         // ComparisonCounter += 1;
@@ -155,19 +164,21 @@ public class Sorts {
         // by swapping adjacent items
 
         // leftItm is greater than rightItm swap them
+        comparisonCounter += 1;
         if (leftItm.compareTo(rightItm) > 0) {
           swap(data,z-1,z);
-          ComparisonCounter += 1;
+          swapCounter+=1;
         }
         else {
-          ComparisonCounter += 1;
+          comparisonCounter += 1;
           break;
         }
 
       }
     }
-    // System.out.println(data);
-    return ComparisonCounter;
+
+    System.out.println("Insetionsort compare, pass, swap: " + comparisonCounter + " " + passCounter + " " + swapCounter);
+    return comparisonCounter;
   }//end insertionSortV
 
 
@@ -175,31 +186,8 @@ public class Sorts {
     ArrayList<Comparable> test = new ArrayList<Comparable>();
     test = populate(false,5);
 
+    selectionSort(test);
     System.out.println(test);
-
-    test = populate(true,10);
-    System.out.println(test);
-
-    int size = 4;
-
-    int bubbleSortBest = bubbleSort(populate(true,size));
-    int bubbleSortWorst = bubbleSort(populate(false,size));
-
-    System.out.println(bubbleSortBest + " " + bubbleSortWorst);
-
-    int selectionSortBest = selectionSort(populate(true,size));
-    int selectionSortWorst = selectionSort(populate(false,size));
-
-    System.out.println(selectionSortBest + " " + selectionSortWorst);
-
-
-    int insertionSortBest = insertionSort(populate(true,size));
-    int insertionSortWorst = insertionSort(populate(false,size));
-
-    System.out.println(insertionSortBest + " " + insertionSortWorst);
-
-
-
 
   }
 }
