@@ -33,8 +33,20 @@ public class Sorts {
 
 
   // populate
-  public static ArrayList<Comparable> populate(ArrayList<Comparable> al){
-    
+  public static ArrayList<Comparable> populate(boolean bestOrWorst, int size){
+    ArrayList<Comparable> al = new ArrayList<Comparable>();
+
+    if (bestOrWorst == true) {
+      for (int i = 0; i <= size; i++) {
+        al.add(i);
+      }
+    }
+    else {
+      for (int i = size; i >= 0; i--) {
+        al.add(i);
+      }
+    }
+    return al;
   }
 
   // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -52,11 +64,12 @@ public class Sorts {
     while ((noSwap == false)) { // while no swap is false and
         noSwap = true;
         for (int z = data.size()-1; z > i; z--) {
-            ComparisonCounter += 1;
+            // ComparisonCounter += 1;
 
             Comparable val1 = data.get(z);
             Comparable val2 = data.get(z-1);
 
+            ComparisonCounter += 1;
             if (val1.compareTo(val2) < 1) {
                 noSwap = false;
                 data.set(z, val2);
@@ -65,11 +78,13 @@ public class Sorts {
         }
         i ++;
     }
+
+    // System.out.println(data);
     return ComparisonCounter;
   }
 
 
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 
   // VOID version of SelectionSort
   // Rearranges elements of input ArrayList
@@ -93,12 +108,14 @@ public class Sorts {
 
         // when at the end of an array
         if (z == data.size()-1) {
+          // ComparisonCounter += 1;
           // when minVal is greater than curVal, minVal takes the value of curVal
           if (minVal.compareTo(curVal) > 0) {
             minVal = curVal;
           }
         } // end last value of list cases
         else {
+          // ComparisonCounter += 1;
           // when minVal is greater than curVal, minVal takes the value of curVal
           if (minVal.compareTo(curVal) > 0) {
             minVal = curVal;
@@ -111,11 +128,11 @@ public class Sorts {
       data.add(i, minVal);
     }
 
+    // System.out.println(data);    
     return ComparisonCounter;
   }//end selectionSort
 
 
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
   // VOID version of InsertionSort
@@ -130,7 +147,7 @@ public class Sorts {
 
       //traverse sorted region from right to left
       for(int z = i-1; z > 0; z--) {
-        ComparisonCounter += 1;
+        // ComparisonCounter += 1;
 
         Comparable rightItm = data.get(z);
         Comparable leftItm = data.get(z-1);
@@ -140,16 +157,49 @@ public class Sorts {
         // leftItm is greater than rightItm swap them
         if (leftItm.compareTo(rightItm) > 0) {
           swap(data,z-1,z);
+          ComparisonCounter += 1;
         }
-        else
+        else {
+          ComparisonCounter += 1;
           break;
+        }
+
       }
     }
+    // System.out.println(data);
     return ComparisonCounter;
   }//end insertionSortV
 
 
   public static void main(String[] args) {
-    ArrayList<Comparable>
+    ArrayList<Comparable> test = new ArrayList<Comparable>();
+    test = populate(false,5);
+
+    System.out.println(test);
+
+    test = populate(true,10);
+    System.out.println(test);
+
+    int size = 4;
+
+    int bubbleSortBest = bubbleSort(populate(true,size));
+    int bubbleSortWorst = bubbleSort(populate(false,size));
+
+    System.out.println(bubbleSortBest + " " + bubbleSortWorst);
+
+    int selectionSortBest = selectionSort(populate(true,size));
+    int selectionSortWorst = selectionSort(populate(false,size));
+
+    System.out.println(selectionSortBest + " " + selectionSortWorst);
+
+
+    int insertionSortBest = insertionSort(populate(true,size));
+    int insertionSortWorst = insertionSort(populate(false,size));
+
+    System.out.println(insertionSortBest + " " + insertionSortWorst);
+
+
+
+
   }
 }
