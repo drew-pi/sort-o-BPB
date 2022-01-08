@@ -32,7 +32,7 @@ public class Sorts {
   }
 
 
-  // populate
+  // populates an array list with numbers either reversed or sorted (1-n, n-1)
   public static ArrayList<Comparable> populate(boolean bestOrWorst, int size){
     ArrayList<Comparable> al = new ArrayList<Comparable>();
 
@@ -54,7 +54,7 @@ public class Sorts {
   // VOID version of bubbleSort
   // Rearranges elements of input ArrayList
   // postcondition: data's elements sorted in ascending order
-  public static int bubbleSort( ArrayList<Comparable> data )
+  public static int[] bubbleSort( ArrayList<Comparable> data )
   {
     int comparisonCounter = 0;
     int passCounter = 0;
@@ -81,8 +81,9 @@ public class Sorts {
         i++;
     }
 
-    System.out.println("Bubblesort compare, pass, swap: " + comparisonCounter + " " + passCounter + " " + swapCounter);
-    return comparisonCounter;
+    //System.out.println("Bubblesort compare, pass, swap: " + comparisonCounter + " " + passCounter + " " + swapCounter);
+    int[] a = {comparisonCounter,passCounter,swapCounter};
+    return a;
   }
 
 
@@ -91,7 +92,7 @@ public class Sorts {
   // VOID version of SelectionSort
   // Rearranges elements of input ArrayList
   // postcondition: data's elements sorted in ascending order
-  public static int selectionSort( ArrayList<Comparable> data )
+  public static int[] selectionSort( ArrayList<Comparable> data )
   {
     //note: this version places smallest value at "rightmost" end
     int comparisonCounter = 0;
@@ -107,12 +108,13 @@ public class Sorts {
 
       // nested forloop - looks for smallest value in array and places it at i position
       for(int z = i + 1 ; z < data.size(); z++) {
-        comparisonCounter+=1;
 
         curVal = data.get(z);
 
+        comparisonCounter+=1;
         // when at the end of an array
         if (z == data.size()-1) {
+          comparisonCounter+=1;
           // ComparisonCounter += 1;
           // when minVal is greater than curVal, minVal takes the value of curVal
           if (minVal.compareTo(curVal) > 0) {
@@ -120,6 +122,7 @@ public class Sorts {
           }
         } // end last value of list cases
         else {
+          comparisonCounter+=1;
           // ComparisonCounter += 1;
           // when minVal is greater than curVal, minVal takes the value of curVal
           if (minVal.compareTo(curVal) > 0) {
@@ -135,8 +138,9 @@ public class Sorts {
       data.add(i, minVal);
     }
 
-    System.out.println("Selectionsort compare, pass, swap: " + comparisonCounter + " " + passCounter + " " + swapCounter);
-    return comparisonCounter;
+    //System.out.println("Selectionsort compare, pass, swap: " + comparisonCounter + " " + passCounter + " " + swapCounter);
+    int[] a = {comparisonCounter,passCounter,swapCounter};
+    return a;
   }//end selectionSort
 
 
@@ -145,7 +149,7 @@ public class Sorts {
   // VOID version of InsertionSort
   // Rearranges elements of input ArrayList
   // postcondition: data's elements sorted in ascending order
-  public static int insertionSort( ArrayList<Comparable> data )
+  public static int[] insertionSort( ArrayList<Comparable> data )
   {
     int comparisonCounter = 0;
     int passCounter = 0;
@@ -177,8 +181,9 @@ public class Sorts {
       }
     }
 
-    System.out.println("Insetionsort compare, pass, swap: " + comparisonCounter + " " + passCounter + " " + swapCounter);
-    return comparisonCounter;
+    //System.out.println("Insetionsort compare, pass, swap: " + comparisonCounter + " " + passCounter + " " + swapCounter);
+    int[] a = {comparisonCounter,passCounter,swapCounter};
+    return a;
   }//end insertionSortV
 
 
