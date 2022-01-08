@@ -1,0 +1,26 @@
+
+
+// to do:
+// 1. change our sorting algorithms to clearly know when swaps are taking place using swap method 
+// 2. place counters near the swap methods to count how many swaps are done (not just loops, because boolean logic takes very little resources) 
+// -  can also add a bunch of counters and then choose which data to show (allows for flexibility) 
+// -  counters for each pass, comparisons, and swaps 
+// 3. set up driver to print out a nice summary 
+// 4. test a bunch of array list sizes to get a conclusion 
+// 5. record everything in the readme (in results section)
+
+
+Creating 3 different counters was very helpful because it helped us see which ones were the most useful in determining which algo is more efficient
+
+
+Bubble sort and insertion sort are almost exactly the same in relation to swaps and comparisons, the number of passes are different because the passes do different things in each method, so not a fair comparison
+    - I thought that insertion would be the most efficient but seeing that it has the same efficiency as bubble sort was very interesting, but also unexpected
+
+On the other hand, selection sort scaled linearly and took the same number of passes and swaps each time (since each pass it makes a swap), however for sorted lists it was the least efficient because it still made
+the same amount of passes and swaps - some optimizations need to be made to get the best of both worlds
+
+
+
+
+
+
