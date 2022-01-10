@@ -13,4 +13,14 @@ Our hypothises is that all of the sorting algorithms we are testing have the sam
 
 We modified our sorting algorithms to count how many loops it does in total (not just passes because in each pass there are many loops being made). Then in driver we summarized the data to make it easier to analyze. *We will have to further refactor our code to prove our hypothesis*
 
-### Results
+## Results
+
+  
+### Array Length 10:
+  |Sorting method|Best case Swaps |Worst case swaps #|  
+  |--------------|---------|----------|
+ |SelectionSort|11|11|
+ |BubbleSort|0|55|
+ InsertionSort|0|55|
+ 
+
