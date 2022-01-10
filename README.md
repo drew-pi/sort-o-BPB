@@ -18,5 +18,6 @@ We modified our sorting algorithms to count how many loops it does in total (not
   
 Line of best fit equation for worst case scenario for InsertSort and BubbleSort: O(n)= 760.8 * 1.01^n.
 
+Line of best fit equation for worst case scenario for SelectionSort: O(n): n+1
  
 
