@@ -16,40 +16,7 @@ We modified our sorting algorithms to count how many loops it does in total (not
 ## Results
 
   
-### Array Length 10:
-  |Sorting method|Best case swaps # |Worst case swaps #|  
-  |--------------|---------|----------|
- |SelectionSort|11|11|
- |BubbleSort|0|55|
- |InsertionSort|0|55|
- 
- ### Array Length 20:
-  |Sorting method|Best case swaps # |Worst case swaps #|  
-  |--------------|---------|----------|
- |SelectionSort|21|21|
- |BubbleSort|0|210|
- |InsertionSort|0|210|
- 
- ### Array Length 40:
-  |Sorting method|Best case swaps # |Worst case swaps #|  
-  |--------------|---------|----------|
- |SelectionSort|41|41|
- |BubbleSort|0|820|
- |InsertionSort|0|820|
- 
- ### Array Length 80:
-  |Sorting method|Best case Swaps |Worst case swaps #|  
-  |--------------|---------|----------|
- |SelectionSort|81|81|
- |BubbleSort|0|3240|
- InsertionSort|0|3240|
- 
- ### Array Length 160:
-  |Sorting method|Best case swaps  |Worst case swaps #|  
-  |--------------|---------|----------|
- |SelectionSort|161|161|
- |BubbleSort|0|12880|
- InsertionSort|0|12880|
- 
+Line of best fit equation for worst case scenario for InsertSort and BubbleSort: O(n)= 760.8 * 1.01^n.
+
  
 
