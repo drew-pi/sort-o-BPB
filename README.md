@@ -19,9 +19,14 @@ All three sorting methods have the same best and worst case, as we predicted in 
 
 ### BubbleSort
 
-BubbleSort starts from the rightmost value and compares it to the value immediately to the left of it. if the left value is greater, it swaps the two. It then compares the left element from the previous comparison and the element one space to the left of it, traversing the array until it reaches the first element. It then makes a pass of the array to check that the array's elements are in descending order from right to left.
-Line of best fit equation for worst case scenario for BubbleSort: O(n)= 760.8 * 1.01^n.
+* BubbleSort starts from the rightmost value and compares it to the value immediately to the left of it. if the left value is greater, it swaps the two. It then compares the left element from the previous comparison and the element one space to the left of it, traversing the array until it reaches the first element. It then makes a pass of the array to check that the array's elements are in descending order from right to left.
 
-Line of best fit equation for worst case scenario for SelectionSort: O(n): n+1
+* Line of best fit equation for worst case scenario for BubbleSort: O(n)= 760.8 * 1.01^n.
+
+### SelectionSort:
+
+* SelectionSort makes a pass of the array to find the maximum value, then places that value at the leftmost slot in the array. It then scans from the element right adjacent of the one just sorted to the end of the array, and repeats this process until all elements in the array are sorted in increasing value from left to right.
+
+* Line of best fit equation for worst case scenario for SelectionSort: O(n): n+1
  
 
