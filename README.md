@@ -23,25 +23,25 @@ All three sorting methods have the same best and worst case, as we predicted in 
 
 * BubbleSort starts from the rightmost value and compares it to the value immediately to the left of it. If the left value is greater, it swaps the two. It then compares the left element from the previous comparison and the element one space to the left of it, traversing the array until it reaches the first element. It does this until no more swaps are done, or the array is sorted.
 * Best Case Scenario - The array is already sorted, so no swaps needed. 
-  * O(0)
+  * O(n)
 * Worst Case Scenario - The array is backward (descending order)
-  * big O notation: O(760.8 * 1.01<sup>n</sup>)
+  * big O notation: O(n<sup>2</sup>)
 
 ### SelectionSort:
 
 * SelectionSort makes a pass of the array to find the maximum value, then places that value at the leftmost slot in the array. It then scans from the element right adjacent of the one just sorted to the end of the array, and repeats this process until all elements in the array are sorted in increasing value from left to right.
 * Best Case Scenario - The array is already sorted, so no swaps needed. 
-  * O(0)
+  * O(n<sup>2</sup>)
 * Worst Case Scenario - The array is backward (descending order)
-  * big O notation: O(n + 1)
+  * O(n<sup>2</sup>)
 
 ### InsertionSort:
 
 * InsertionSort creates two virtual patition in the array. One already sorted and the other unsorted. First it sorts the sorted partition, and continues adding values to the sorted partition to make it unsorted and then sorts the sorted partition. It does this until the sorted partition encompasses the entire array. 
 * Best Case Scenario - The array is already sorted, so no swaps needed. 
-  * O(0)
+  * O(n)
 * Worst Case Scenario - The array is backward (descending order)
-  * big O notation: O(760.8 * 1.01<sup>n</sup>)
+  * big O notation: O(n<sup>2</sup>)
  
  
 
